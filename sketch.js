@@ -1,13 +1,13 @@
 
-
+var canvas;
 
 function preload(){
 
-  eQ = loadImage("images/EarthQuake.jpg")
-  fire = loadImage("images/fire.png")
-  hospital = loadImage("images/hospital.jpg")
-  police = loadImage("images/police.png")
-  womenP = loadImage("images/womenProtection.png")
+  eQImage = loadImage("images/EarthQuake.jpg")
+  fireImage = loadImage("images/fire.png")
+  hospitalImage = loadImage("images/hospital.jpg")
+  policeImage = loadImage("images/police.png")
+  womenPImage = loadImage("images/womenProtection.png")
 }
 
 	
@@ -15,27 +15,39 @@ function preload(){
 
 function setup() {
 	createCanvas(displayWidth,displayHeight);
-  //mainPage = new MainPage()
+  mainPage = new MainPage()
+  
+  earthQ= createSprite(displayWidth/7,200)
 
-  earthQ= createSprite(displayWidth/2,displayHeight/2-40)
-  earthQ.addImage("Eq",eQ)
+  earthQ.addImage("Eq",eQImage);
+  earthQ.scale=0.05;
 
-  police1 = createSprite(displayWidth/2-20,displayHeight/2-40)
-  police1.addImage("P",police)
+  police = createSprite(displayWidth/3,400)
+  police.addImage("P",policeImage);
+  police.scale=0.05;
 
-  hospital = createSprite(displayWidth/2-10,displayHeight/2-20)
-  hospital.addImage("H",hospital)
+  hospital = createSprite(displayWidth/3,600)
+  hospital.addImage("H",hospitalImage);
+  hospital.scale=0.05;
 
-  fire1 = createSprite(displayWidth/2-30,displayHeight/2-10)
-  fire1.addImage("F",fire)
+  fire = createSprite(displayWidth/3,700)
+  fire.addImage("F",fireImage);
+  fire.scale=0.05;
 
-  womenpr = createSprite(displayWidth/2-50,displayHeight/2-10)
-  womenpr.addImage("W",womenP)
+  womenpr = createSprite(displayWidth/3,100)
+  womenpr.addImage("W",womenPImage)
+  womenpr.scale=0.05;
+
+
+
+ 
 
 }
 function draw() { 
 background("magenta");
-  
+textSize(15)
+fill("green")
+text("earthquake Helpline",displayWidth/7-200,200)
 
 drawSprites();
 }
